@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        button {
-            background-color: rgb(248, 214, 21);
-        }
-    </style>
+<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -17,21 +13,29 @@
     <h1>Список задач через Promise</h1>
     <article>Потрібно розробити функції які будуть виконуватися послідовно одна за одною за допомогою промісів.
     </article>
-    <li>1. Зробити зарядку</li>
-    <li>2. Піти в душ</li>
-    <li>3. Зробити сніданок</li>
-    <li>4. Піти на роботу</li>
-    <button>START</button>
+    <li>Зробити зарядку</li>
+    <li>Піти в душ</li>
+    <li>Зробити сніданок</li>
+    <li>Піти на роботу</li>
+    <button id="start">START</button>
 
     <h2>ДЗ по XMLHttpRequest та Promise</h2>
     <article>Потрібно за допомогою XMLHttpRequest витягнути дані з OMDb API використовуючи Promise.</article>
     <article>Потрібно в промісі відправляти запит на сервер по імені а також по ІД.</article>
-    <li>1. Витягуємо дані по імені фільму</li>
-    <li>2. Дані розпарсуємо на сторінці</li>
-    <li>3. При натисканні на More Details має відкритися модалка з усіма даними про той фільм.</li>
-    <li>4. Все має працювати.</li>
+    <li>Витягуємо дані по імені фільму</li>
+    <li>Дані розпарсуємо на сторінці</li>
+    <li>При натисканні на More Details має відкритися модалка з усіма даними про той фільм.</li>
+    <li>Все має працювати.</li>
+    <input type="text" name="" id="" placeholder="Write movie name">
+    <button id="search">SEARCH</button>
 
-
+<div id="omdbFile">
+    <img src="" class="logo">
+    <h3 class="name">name</h3>
+    <p class="category">category</p>
+    <p class="year">year</p>
+    <button class="more">More Details</button>
+</div>
 
 
 
