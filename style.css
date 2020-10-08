@@ -23,6 +23,22 @@ input{
     width: 250px;
 }
 
+#day{
+    width: 100%;
+    height: max-content;
+    /* border: 1px solid #000; */
+}
+.foto{
+    width: 200px;
+    height: 120px;
+}
+
+.omdbPlace{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 #omdbFile{
     border: 1px solid rgba(0, 0, 0, 0.4);
     width: 200px;
