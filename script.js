@@ -9,9 +9,8 @@
 function morningDay() {
     let prom = new Promise((resolve, reject) => {
         setTimeout(function () {
-            true
-                ? resolve('gym.jpg')
-                : reject('Error Gym')
+            resolve('gym.jpg')
+            reject('Error Gym')
         }, 1500);
     });
     return prom;
@@ -21,9 +20,8 @@ function shower(mess) {
     document.getElementById('day').innerHTML += `<img class="foto" src="./photo/${mess}">`;
     return new Promise((resolve, reject) => {
         setTimeout(function () {
-            true
-                ? resolve('shower.jpg')
-                : reject('Error Shower')
+            resolve('shower.jpg')
+            reject('Error Shower')
         }, 1500);
     });
 }
@@ -32,9 +30,8 @@ function breakfast(mess) {
     document.getElementById('day').innerHTML += `<img class="foto" src="./photo/${mess}">`;
     return new Promise((resolve, reject) => {
         setTimeout(function () {
-            true
-                ? resolve('breakfast.jpg')
-                : reject('Error Breakfast')
+            resolve('breakfast.jpg')
+            reject('Error Breakfast')
         }, 1500);
     });
 }
@@ -43,9 +40,8 @@ function work(mess) {
     document.getElementById('day').innerHTML += `<img class="foto" src="./photo/${mess}">`;
     return new Promise((resolve, reject) => {
         setTimeout(function () {
-            true
-                ? resolve('work.jpg')
-                : reject('Error Work')
+            resolve('work.jpg')
+            reject('Error Work')
         }, 1500);
     });
 }
@@ -54,9 +50,8 @@ function finish(mess) {
     document.getElementById('day').innerHTML += `<img class="foto" src="./photo/${mess}">`;
     return new Promise((resolve, reject) => {
         setTimeout(function () {
-            true
-                ? resolve('Finish')
-                : reject('Error day')
+            resolve('Finish')
+            reject('Error day')
         }, 1500);
     });
 }
@@ -86,8 +81,46 @@ document.getElementById('start').addEventListener('click', function () {
 */
 
 document.getElementById('search').addEventListener('click', function () {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://www.omdbapi.com/?s=batman&apikey=fb18a1ae', false);
-    xhr.send();
-    console.log(JSON.parse(xhr.responseText));
+
+    const searchText = document.getElementById('inputSearch').value;
+
+    sendXHRRequest('GET', `http://www.omdbapi.com/?s=${searchText}&plot=full&apikey=fb18a1ae`)
+        .then(data => loadOMDBList(data))
+        .catch(error => console.log(error))
+
 })
+
+function sendXHRRequest(method, url) {
+    const xhr = new XMLHttpRequest();
+    return new Promise((resolve, reject) => {
+        xhr.open(method, url);
+        xhr.send();
+        xhr.onload = function () {
+            JSON.parse(xhr.response).Response == 'True'
+                ? resolve(JSON.parse(xhr.response))
+                : reject(JSON.parse(xhr.response).Error)
+        }
+    })
+}
+
+function loadOMDBList(arrayOmdb) {
+    console.log(arrayOmdb.Search);
+    let imdbID = new Array;
+    for (const element in arrayOmdb.Search) {
+        let a = arrayOmdb.Search[element];
+        // imdbID.push(a.imdbID);
+        document.getElementById('omdbPlace').innerHTML += `<div id="omdbFile">
+            <img src="${a.Poster}" class="logo">
+            <h3 class="name">${a.Title}</h3>
+            <p class="category">${a.Type}</p>
+            <p class="year">${a.Year}</p>
+            <button class="more" onclick="details(${a.imdbID})">More Details</button>
+        </div>`;
+    }
+
+}
+
+
+function details(imdbID){
+    // console.log(imdbID);
+}

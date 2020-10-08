@@ -1,10 +1,11 @@
 body, html{
     box-sizing: border-box;
-    padding: 10px;
+    /* padding: 10px; */
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
 }
-
+h1, h2{font-size: 16px; padding-left: 15px;}
+article, li{font-size: 12px; padding-left: 15px;}
 button, input{
     border-radius: 3px;
     padding: 7px;
@@ -12,59 +13,57 @@ button, input{
     width: 150px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
-#start{
-    background-color: rgb(248, 214, 21);
-}
+#start{background-color: rgb(248, 214, 21);}
 #search{
     background-color: green;
     color: white;
 }
-input{
-    width: 250px;
-}
+input{width: 250px;}
 
 #day{
     width: 100%;
     height: max-content;
-    /* border: 1px solid #000; */
 }
 .foto{
     width: 200px;
     height: 120px;
 }
 
-.omdbPlace{
+#omdbPlace{
+    width: 100%;
+    height: max-content;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 #omdbFile{
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    width: 200px;
+    width: 180px;
     height: max-content;
-    border-radius: 3px;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: rgba(31, 91, 126, 0.1);
 }
 .logo{
-    width: 200px;
+    width: 180px;
     height: 250px;
     background-color: grey;
-
 }
 .name{
-    background-color: rgba(119, 136, 153, 0.5);
+    background-color: rgba(119, 136, 153, 0.2);
     margin: 0;
     padding: 10px;
     text-align: center;
+    height: 30px;
+    font-size: 14px;
 }
 .year, .category{
     margin: 5px;
-    /* padding: 0; */
     text-align: center;
 }
 .more{
     width: 100%;
-    background-color: green;
+    background-color: cornflowerblue;
     margin: 0;
     color: white;
     border: 0;
